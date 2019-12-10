@@ -1,0 +1,4 @@
+# 自动装配
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+spring.boot.starter.validate.code.config.ValidateAutoCodeConfig,\
+spring.boot.starter.validate.code.config.ValidateCodeBeanConfig

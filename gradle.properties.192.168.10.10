@@ -1,0 +1,21 @@
+# \u5e93\u540d\u79f0
+POM_NAME=spring-boot-starter-sms
+# artifactId
+POM_ARTIFACT_ID=spring-boot-starter-sms
+# \u5e93\u7684\u6253\u5305\u683c\u5f0f\u4e3aaar, \u5e38\u89c1\u7684\u8fd8\u6709jar
+POM_PACKAGING=jar
+# \u5e93\u7684\u63cf\u8ff0,\u8bf4\u660e\u4ed6\u662f\u5e72\u5565\u7684
+POM_DESCRIPTION=id\u751f\u6210\u5668
+# \u8981\u53d1\u5e03\u7684\u7248\u672c\u597d,snapshots \u7248\u672c\u53ef\u4ee5\u4f7f\u7528\u683c\u5f0f 1.0.0-SNAPSHOT
+VERSION_NAME=1.0.2
+
+
+# properties for maven2 repository
+# nexus\u670d\u52a1\u5668\u767b\u9646\u65f6\u5019\u7684\u7528\u6237\u540d/\u5bc6\u7801
+NEXUS_USERNAME=admin
+NEXUS_PASSWORD=admin123
+# \u5728POM\u6587\u4ef6\u4e2d\u4f7f\u7528\u7684group ID
+POM_GROUP_ID=top.lemna
+
+RELEASE_REPOSITORY_URL=http://192.168.10.10:8081/repository/maven-releases/
+SNAPSHOT_REPOSITORY_URL=http://192.168.10.10:8081/repository/maven-snapshots/
