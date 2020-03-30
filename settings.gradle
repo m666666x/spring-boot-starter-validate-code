@@ -1,5 +1,9 @@
 pluginManagement {
 	repositories {
+    maven {
+      //      url "https://plugins.gradle.org/m2/"
+      url "http://192.168.10.10:8081/repository/plugins-gradle/"
+    }
 		gradlePluginPortal()
 	}
 }
