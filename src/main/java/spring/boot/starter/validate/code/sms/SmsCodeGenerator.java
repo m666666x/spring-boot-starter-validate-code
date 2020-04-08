@@ -12,7 +12,7 @@ import spring.boot.starter.validate.code.properties.ValidateCodeProperties;
  * @author zhailiang
  *
  */
-@Component("smsValidateCodeGenerator")
+//@Component("smsValidateCodeGenerator")
 public class SmsCodeGenerator implements ValidateCodeGenerator {
 
   @Autowired

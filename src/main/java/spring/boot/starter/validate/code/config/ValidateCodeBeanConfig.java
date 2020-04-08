@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import spring.boot.starter.validate.code.ValidateCodeGenerator;
 import spring.boot.starter.validate.code.image.ImageCodeGenerator;
 import spring.boot.starter.validate.code.properties.ValidateCodeProperties;
+import spring.boot.starter.validate.code.sms.SmsCodeGenerator;
 
 /**
  * @author zhailiang
@@ -22,6 +23,14 @@ public class ValidateCodeBeanConfig {
   @ConditionalOnMissingBean(name = "imageValidateCodeGenerator")
   public ValidateCodeGenerator imageValidateCodeGenerator() {
     ImageCodeGenerator codeGenerator = new ImageCodeGenerator(codeProperties);
+    return codeGenerator;
+  }
+
+
+  @Bean
+  @ConditionalOnMissingBean(name = "smsValidateCodeGenerator")
+  public ValidateCodeGenerator smsCodeGenerator() {
+    SmsCodeGenerator codeGenerator = new SmsCodeGenerator(codeProperties);
     return codeGenerator;
   }
 
