@@ -13,7 +13,7 @@ import spring.boot.starter.validate.code.properties.ValidateCodeProperties;
  */
 @Configuration
 @EnableConfigurationProperties(ValidateCodeProperties.class)
-@Order(1)
+@Order(100)
 @ComponentScan("spring.boot.starter.validate.code")
 @ServletComponentScan(basePackages = "spring.boot.starter.validate.code")
 public class ValidateAutoCodeConfig {
