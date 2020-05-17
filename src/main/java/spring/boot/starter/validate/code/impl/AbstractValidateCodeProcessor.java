@@ -62,7 +62,7 @@ public abstract class AbstractValidateCodeProcessor<C extends ValidateCode>
    * 
    * @param request
    * @param validateCode
-   * @throws Exception 
+   * @throws Exception
    */
   private void save(ServletWebRequest request, C validateCode) throws Exception {
     ValidateCode code = new ValidateCode(validateCode.getCode(), validateCode.getExpireTime());
@@ -74,9 +74,10 @@ public abstract class AbstractValidateCodeProcessor<C extends ValidateCode>
    * 
    * @param request
    * @return
-   * @throws Exception 
+   * @throws Exception
    */
-  protected abstract String getPersistenceKey(ServletWebRequest request) throws ValidateCodeException;
+  protected abstract String getPersistenceKey(ServletWebRequest request)
+      throws ValidateCodeException;
 
   /**
    * 发送校验码，由子类实现
@@ -107,23 +108,23 @@ public abstract class AbstractValidateCodeProcessor<C extends ValidateCode>
 
     C codeInSession = (C) ValidateCodeRedisRepository.getValue(sessionKey);
 
-    String codeInRequest = request.getRequest().getHeader(processorType.getParamNameOnValidate()); 
+    String codeInRequest = request.getRequest().getHeader(processorType.getParamNameOnValidate());
 
     if (StringUtils.isBlank(codeInRequest)) {
       throw new ValidateCodeException(processorType + "验证码的值不能为空");
     }
 
     if (codeInSession == null) {
-      throw new ValidateCodeException(processorType + "验证码不存在");
+      throw new ValidateCodeException("请先获取验证码");
     }
 
     if (codeInSession.isExpried()) {
       ValidateCodeRedisRepository.delete(sessionKey);
-      throw new ValidateCodeException(processorType + "验证码已过期");
+      throw new ValidateCodeException("验证码已过期 请重新获取");
     }
 
     if (!StringUtils.equals(codeInSession.getCode(), codeInRequest)) {
-      throw new ValidateCodeException(processorType + "验证码不匹配");
+      throw new ValidateCodeException("验证码有误 请重新填写");
     }
 
     ValidateCodeRedisRepository.delete(sessionKey);
